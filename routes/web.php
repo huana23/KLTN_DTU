@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Middleware\AuthenticateAdmin;
+use App\Http\Middleware\AuthenticateUser;
+use App\Http\Controllers\Auth\FunctionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +20,19 @@ use App\Http\Controllers\HomeController;
 */
 
 
+Route::get('/', function () {
+    return view('layouts.home-page.index');
+})->name('home-page');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/admin', [FunctionController::class, 'index'])->middleware('auth.admin')->name('admin.dashboard');
+
+Route::get('/user', function () {
+    return view('layouts.client.index');
+})->name('client.index')->middleware('auth.user');
+
+Route::get('/login', [LoginController::class, 'showForm'])->name('auth.login');
+Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 
 
-
-use App\Http\Controllers\ContactFormController;
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::post('/contact', [ContactFormController::class, 'submit'])->name('contact.submit');
