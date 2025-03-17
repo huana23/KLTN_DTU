@@ -91,7 +91,7 @@ $body-color: #ffffff;
 
 
 ///////// CARD ////////
-$card-bg: #191c24;
+$card-bg: var(--dark);
 $card-description-color: #bfbfbf;
 $card-title-color: #ffffff;
 ///////// CARD ////////
@@ -114,7 +114,7 @@ $modal-content-bg: $content-bg;
 ////////// MODALS VARIABLES //////////
 
 ///////// NAVBAR ////////
-$navbar-bg: #191c24;
+$navbar-bg: var(--dark);
 $navbar-brand-wrapper-tinted-bg: #fa424a;
 $navbar-height: 70px;
 $navbar-menu-color: #ffffff;
@@ -128,7 +128,7 @@ $sidebar-width-lg: 244px;
 $sidebar-width-mini: 185px;
 $sidebar-width-icon: 70px;
 
-$sidebar-dark-bg: #191c24;
+$sidebar-dark-bg: var(--dark);
 $sidebar-dark-menu-color: $text-muted;
 $sidebar-dark-menu-active-bg: darken($sidebar-dark-bg, 5%);
 $sidebar-dark-menu-active-color: #ffffff;

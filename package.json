@@ -3,11 +3,14 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "format": "prettier --write \"resources/**/*.blade.php\" \"resources/js/**/*.js\" \"resources/css/**/*.css\""
     },
     "devDependencies": {
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
+        "prettier": "^3.5.3",
+        "prettier-plugin-blade": "^2.1.21",
         "vite": "^5.0.0"
     }
 }

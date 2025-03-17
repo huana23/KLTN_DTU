@@ -7,5 +7,4 @@
     @yield('content')
     @include('layouts.components.script')
   </body>
-  
 </html>

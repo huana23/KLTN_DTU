@@ -2,26 +2,43 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Corona Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('assets-dashboard/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets-dashboard/vendors/css/vendor.bundle.base.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets-dashboard/vendors/mdi/css/materialdesignicons.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets-dashboard/vendors/css/vendor.bundle.base.css') }}"
+    />
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('assets-dashboard/css/style.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets-dashboard/css/style.css') }}"
+    />
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('assets-dashboard/images/favicon.png') }}" />
+    <link
+      rel="shortcut icon"
+      href="{{ asset('assets-dashboard/images/favicon.png') }}"
+    />
   </head>
   <body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center text-center error-page bg-info">
+        <div
+          class="content-wrapper d-flex align-items-center text-center error-page bg-info"
+        >
           <div class="row flex-grow">
             <div class="col-lg-7 mx-auto text-white">
               <div class="row align-items-center d-flex flex-row">
@@ -35,7 +52,12 @@
               </div>
               <div class="row mt-5">
                 <div class="col-12 text-center mt-xl-2">
-                  <a class="text-white font-weight-medium" href="{{route('auth.login')}}">Quay lại trang chủ</a>
+                  <a
+                    class="text-white font-weight-medium"
+                    href="{{ route('auth.login') }}"
+                  >
+                    Quay lại trang chủ
+                  </a>
                 </div>
               </div>
             </div>

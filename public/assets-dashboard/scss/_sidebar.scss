@@ -2,7 +2,7 @@
 
 .sidebar {
   min-height: calc(100vh - #{$navbar-height});
-  background: $sidebar-dark-bg;
+  background: #2f4050;
   font-weight: normal;
   padding: 0;
   width: $sidebar-width-lg;
@@ -17,7 +17,7 @@
     -webkit-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     -moz-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     -ms-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
-    background: $sidebar-dark-bg;
+    background: #2f4050;
     width: $sidebar-width-lg;
     height: $navbar-height;
     @media (max-width: 991px) {

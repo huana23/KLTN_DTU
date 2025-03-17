@@ -8577,7 +8577,7 @@ pre {
     border-top: 1px solid #2c2e33; }
   .table thead th, .jsgrid .jsgrid-table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #2c2e33; }
+    border-bottom: 2px solid var(--light); }
   .table tbody + tbody, .jsgrid .jsgrid-table tbody + tbody {
     border-top: 2px solid #2c2e33; }
 
@@ -9787,7 +9787,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-align: left;
   list-style: none;
-  background-color: #191c24;
+  background-color: var(--dark);
   background-clip: padding-box;
   border: 1px solid #2c2e33;
   border-radius: 0.25rem; }
@@ -11399,7 +11399,8 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+  background-color: var(--light);
+  color: var(--dark);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -15716,7 +15717,7 @@ body,
 html {
   overflow-x: hidden;
   padding-right: 0 !important;
-  background-color: #191c24; }
+  background-color: var(--dark); }
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -17882,12 +17883,12 @@ div.tagsinput {
 /* Tables */
 .table, .jsgrid .jsgrid-table {
   margin-bottom: 0;
-  color: #6c7293; }
+  color: var(--light); }
   .table thead th, .jsgrid .jsgrid-table thead th {
     border-top: 0;
     border-bottom-width: 1px;
     font-weight: 500;
-    color: #6c7293; }
+    color: var(--light); }
     .table thead th i, .jsgrid .jsgrid-table thead th i {
       margin-left: 0.325rem; }
   .table th, .jsgrid .jsgrid-table th,
@@ -19027,7 +19028,7 @@ body.avgrund-active {
     color: #ffffff; }
 
 .fc-external-events .fc-event {
-  background: #191c24;
+  background: var(--dark);
   color: #ffffff;
   border-width: 0 0 0 4px;
   padding: 16px;
@@ -20340,7 +20341,7 @@ div.tagsinput {
 /* Navbar */
 .navbar {
   font-weight: normal;
-  background: #191c24;
+  background: var(--dark);
   left: 244px;
   transition: left 0.25s ease;
   -webkit-transition: left 0.25s ease;
@@ -20354,7 +20355,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: var(--dark);
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20450,7 +20451,7 @@ div.tagsinput {
       .navbar .navbar-menu-wrapper .count-indicator .count-number {
         position: absolute;
         border-radius: 100%;
-        border: 2px solid #191c24; }
+        border: 2px solid var(--dark); }
       .navbar .navbar-menu-wrapper .count-indicator .count-symbol {
         top: 17px;
         right: -3px;
@@ -20482,7 +20483,7 @@ div.tagsinput {
       flex-direction: row;
       align-items: center; }
       .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
-        color: inherit;
+        color: var(--light);
         font-size: 0.9375rem;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -20516,6 +20517,7 @@ div.tagsinput {
             position: absolute;
             font-size: 0.9rem;
             margin-top: 0;
+            color: var(--light);
             top: 48px;
             right: 0;
             left: auto;
@@ -20528,6 +20530,7 @@ div.tagsinput {
               left: 0; }
             .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu.navbar-dropdown .dropdown-item {
               margin-bottom: 0;
+              color: var(--light);
               padding: 11px 13px;
               cursor: pointer; }
               .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu.navbar-dropdown .dropdown-item:hover {
@@ -20591,7 +20594,7 @@ div.tagsinput {
             margin-left: 0;
             margin-right: auto; } }
     .navbar .navbar-menu-wrapper .search input {
-      background: #191c24;
+      background: var(--dark);
       padding: 13px 20px 11px 20px;
       border: 1px solid #2c2e33; }
       .navbar .navbar-menu-wrapper .search input::placeholder {
@@ -20623,7 +20626,7 @@ div.tagsinput {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #191c24;
+  background: #2f4050;
   font-weight: normal;
   padding: 0;
   width: 244px;
@@ -20637,7 +20640,7 @@ div.tagsinput {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #191c24;
+    background: #2f4050;
     width: 244px;
     height: 70px; }
     @media (max-width: 991px) {
@@ -20814,7 +20817,7 @@ div.tagsinput {
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-number {
                 position: absolute;
                 border-radius: 100%;
-                border: 2px solid #191c24; }
+                border: 2px solid var(--dark); }
               .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-symbol {
                 top: 17px;
                 right: -3px;
@@ -21051,7 +21054,7 @@ div.tagsinput {
           left: 70px;
           width: 190px; }
           .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-            background: #191c24; }
+            background: var(--dark); }
           .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
             left: auto;
             right: 70px;
@@ -21126,7 +21129,7 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #000000;
+  background: var(--dark);
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;
