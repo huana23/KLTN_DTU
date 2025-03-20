@@ -35,13 +35,14 @@ code {
   @extend .justify-content-between;
   @extend .align-items-center;
   margin: 0 0 1.5rem 0;
+  border-bottom: 1px solid;
   .breadcrumb {
     border: 0;
     margin-bottom: 0;
   }
 }
 .page-title {
-  color: $page-title-color;
+  color: var(--light);
   font-size: 1.125rem;
   margin-bottom: 0;
   .page-title-icon {

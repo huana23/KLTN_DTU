@@ -70,8 +70,7 @@
           <li class="nav-item nav-item-li menu-items">
             <a
               class="nav-link"
-              href="{{ route('admin.dashboard', ['template' => 'overview']) }}"
-              data-template="overview"
+              href="{{ route('admin.dashboard')}}"
             >
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
@@ -103,10 +102,10 @@
               <span class="menu-title">Câu hỏi</span>
             </a>
           </li>
-          <li class="nav-item nav-item-li menu-items">
+          <li class="nav-item nav-item-li menu-items {{ Route::currentRouteName() == 'admin.user' ? 'active' : '' }}">
             <a
               class="nav-link"
-              href="{{ route('admin.dashboard', ['template' => 'user']) }}"
+              href="{{ route('admin.user') }}"
               data-template="user"
             >
               <span class="menu-icon">
@@ -149,7 +148,7 @@
             class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center"
           >
             <a class="navbar-brand brand-logo-mini" href="index.html">
-              <img src="assets-dashboard/images/logo-mini.svg" alt="logo" />
+              <img src="{{ asset('assets-dashboard/images/logo-mini.svg ') }}" alt="logo" />
             </a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -173,13 +172,17 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown">
-                <div class="preview-item"> 
-                  <input type="checkbox" class="checkbox-dark-light" id="checkbox"> 
-                  <label for="checkbox" class="checkbox-label-dark-light"> 
-                    <i class="mdi mdi-moon-last-quarter"></i> 
-                    <i class="mdi mdi-weather-sunny"></i> 
-                    <span class="ball-dark-light"></span> 
-                  </label> 
+                <div class="preview-item">
+                  <input
+                    type="checkbox"
+                    class="checkbox-dark-light"
+                    id="checkbox"
+                  />
+                  <label for="checkbox" class="checkbox-label-dark-light">
+                    <i class="mdi mdi-moon-last-quarter"></i>
+                    <i class="mdi mdi-weather-sunny"></i>
+                    <span class="ball-dark-light"></span>
+                  </label>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -207,7 +210,7 @@
                 >
                   <h6 class="p-3 mb-0 text-center">Chức Năng</h6>
                   <div class="dropdown-divider"></div>
-                  
+
                   <a
                     class="dropdown-item preview-item"
                     href="{{ route('auth.logout') }}"
@@ -233,6 +236,7 @@
             </button>
           </div>
         </nav>
+        
         <!-- partial -->
         <!-- main-panel ends -->
         @include($templateView)

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateAdmin;
 use App\Http\Middleware\AuthenticateUser;
 use App\Http\Controllers\Auth\FunctionController;
+use App\Http\Controllers\Auth\UserController;
+
 
 
 /*
@@ -35,4 +37,12 @@ Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('user', [UserController::class, 'index'])->middleware('auth.admin')->name('admin.user');
+    Route::get('user/create', [UserController::class, 'create'])->middleware('auth.admin')->name('admin.user.create');
+    Route::post('user/store', [UserController::class, 'store'])->middleware('auth.admin')->name('admin.user.store');
+
+
+});
 

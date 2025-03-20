@@ -78,9 +78,7 @@
                   </h4>
                   <ul class="credit-list">
                     <li>
-                      <p>
-                        Dễ dàng tạo hoặc upload file câu hỏi trắc nghiệm.
-                      </p>
+                      <p>Dễ dàng tạo hoặc upload file câu hỏi trắc nghiệm.</p>
                     </li>
                     <li>
                       <p>
@@ -89,7 +87,8 @@
                     </li>
                     <li>
                       <p>
-                        Tạo bài thi lấy ngẫu nhiên từ ngân hàng câu hỏi trắc nghiệm của bạn.
+                        Tạo bài thi lấy ngẫu nhiên từ ngân hàng câu hỏi trắc
+                        nghiệm của bạn.
                       </p>
                     </li>
                     <li>

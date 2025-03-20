@@ -27,10 +27,11 @@ class User extends Authenticatable
         'ngaySinh',
         'diaChi',
         'img',
+        'is_admin',
 
 
     ];
-
+    protected $table = 'users';
     /**
      * The attributes that should be hidden for serialization.
      *
