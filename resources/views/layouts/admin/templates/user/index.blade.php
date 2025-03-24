@@ -11,14 +11,17 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <form action="" class="form__search">
+        <form action="{{ route('admin.user') }}" class="form__search">
+          @php
+            $perpage = request('perpage') ?: old('perpage')
+          @endphp
           <select class="form-control input-sm filter  mr-10 form__search--select" name="perpage" aria-label="Default select example">
-            @for($i = 20 ; $i <= 200; $i+=20)
-            <option value="{{$i}}">{{$i}} bản ghi</option>
+            @for($i = 10 ; $i <= 200; $i+=10)
+            <option {{ ($perpage == $i) ? 'selected' : ''}} value="{{$i}}"> {{$i}} bản ghi</option>
             @endfor
           </select>
           <div class="input-group form__search--group">
-            <input type="text" name="keyword" value="" placeholder="Nhập từ khoá tìm kiếm" class="form-control form__search--input">
+            <input type="text" name="keyword" value="{{ request('keyword') ?: old('keyword') }}" placeholder="Nhập từ khoá tìm kiếm" class="form-control form__search--input">
             <span class="input-group-append form__search--append">
                 <button type="submit" name="search" value="search" class="btn btn-primary btn-sm"> Tìm kiếm</button>
             </span>
@@ -67,12 +70,12 @@
                 </div>
               </td>
               <td>
-                <a href="" class="btn btn-info btn__customer">
+                <a href="{{route('admin.user.edit', $oneUser->id)}}" class="btn btn-info btn__customer">
                   <span class="menu-icon">
                     <i class="mdi mdi-calendar-edit"></i>
                   </span>
                 </a>
-                <a href="" class="btn btn-danger btn__customer">
+                <a href="{{route('admin.user.delete', $oneUser->id)}}" class="btn btn-danger btn__customer">
                   <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
                 </a>
               </td>

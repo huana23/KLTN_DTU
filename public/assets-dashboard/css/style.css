@@ -15752,7 +15752,8 @@ code {
 .page-title {
   color: var(--light);
   font-size: 1.125rem;
-  margin-bottom: 0; }
+  margin-bottom: 0; 
+}
   .page-title .page-title-icon {
     display: inline-block;
     width: 36px;

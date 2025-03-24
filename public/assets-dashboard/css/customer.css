@@ -124,3 +124,23 @@
 .panel-head{
     color: var(--light);
 }
+.card-test{
+    background-color: var(--light);
+}
+.card__test{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__left{
+    width: 50%; 
+}
+.card__right{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 50%; 
+
+}

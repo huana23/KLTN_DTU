@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +22,14 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:users,email|max:191',          
+            'email' => 'required|email|unique:users,email,' . $this->id . '|max:191',          
             'hoTen' => 'required|string|max:255',                               
             'dienThoai' => 'required|string|max:15',      
             'gioiTinh' => 'required|in:0,1',                        
             'diaChi' => 'required|string|max:255',                                 
-            'maThanhVien' => 'required|string|max:10|unique:users,maThanhVien', 
-            'password' => 'required|string|min:6',                                
-            're_password' => 'required|string|same:password',                     
+            'maThanhVien' => 'required|string|unique:users,maThanhVien,' . $this->id . '|max:10',                     
         ];
     }
-
-
-
 
     public function messages(): array
     {
@@ -60,17 +55,6 @@ class StoreUserRequest extends FormRequest
             'maThanhVien.string' => 'Mã thành viên phải là một chuỗi ký tự.',
             'maThanhVien.max' => 'Mã thành viên không được vượt quá 10 ký tự.',
             'maThanhVien.unique' => 'Mã thành viên này đã tồn tại.',
-            
-            'password.required' => 'Vui lòng nhập mật khẩu.',
-            'password.string' => 'Mật khẩu phải là một chuỗi ký tự.',
-            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự.',
-            
-            're_password.required' => 'Vui lòng xác nhận lại mật khẩu.',
-            're_password.string' => 'Mật khẩu xác nhận phải là một chuỗi ký tự.',
-            're_password.same' => 'Mật khẩu xác nhận không khớp với mật khẩu đã nhập.',
         ];
     }
-
-
-
 }

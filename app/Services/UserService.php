@@ -24,9 +24,12 @@ class UserService implements UserServiceInterface
     }
 
     
-    public function paginate()
+    public function paginate($request)
     {
-        return $this->userRepository->getAllPaginate();
+
+        $condition['keyword'] = addslashes($request->input('keyword')) ;
+        $users =  $this->userRepository->pagination(['id', 'hoTen', 'email','diaChi','maThanhVien','img'], $condition); 
+        return $users;
     }
 
    
@@ -37,33 +40,34 @@ class UserService implements UserServiceInterface
         try {
             $payload = $request->except(['_token', 'send', 're_password']);
 
-
             
             $payload['password'] = Hash::make($payload['password']);
             
             
             $user = $this->userRepository->create($payload);
 
-
-            $file = $payload['img'];
-            $destinationPath = public_path('uploads');
-            $filename = time() . '_' . $file->getClientOriginalName(); 
+            
+            if (!$user) {
+                throw new \Exception('Failed to create user');
+            }
 
             
-            if ($file->move($destinationPath, $filename)) {
-                echo "File upload success";
+            if ($request->hasFile('img')) {
+                $file = $request->file('img');
+                $destinationPath = public_path('uploads');
+                $filename = time() . '_' . $file->getClientOriginalName(); 
 
                 
-                $path = 'uploads/' . $filename ;
+                if ($file->move($destinationPath, $filename)) {
+                    echo "File upload success";
 
-                
-                $user->img = $path;
-                $user->save();
-
-               
-
-            } else {
-                echo "File upload error";
+                    
+                    $path = 'uploads/' . $filename;
+                    $user->img = $path;
+                    $user->save();
+                } else {
+                    echo "File upload error";
+                }
             }
 
             DB::commit(); 
@@ -76,5 +80,60 @@ class UserService implements UserServiceInterface
         }
     }
 
+
+
+    public function update($id, $request) 
+    {
+        DB::beginTransaction(); 
+
+        try {
+            $payload = $request->except(['_token', 'send']);
+
+            
+            if ($request->hasFile('img')) {
+                $file = $request->file('img');
+                $destinationPath = public_path('uploads');
+                $filename = time() . '_' . $file->getClientOriginalName();
+
+                
+                if ($file->move($destinationPath, $filename)) {
+                    echo "File upload success";
+
+                   
+                    $path = 'uploads/' . $filename;
+                    $payload['img'] = $path;
+                } else {
+                    echo "File upload error";
+                }
+            }
+
+            
+            $user = $this->userRepository->update($id, $payload);
+
+            DB::commit(); 
+
+            return $user;  
+        } catch (\Exception $e) {
+            DB::rollBack(); 
+            Log::error('Error updating user: ' . $e->getMessage());
+            return false; 
+        }
+    }
+
+    public function destroy($id) {
+        DB::beginTransaction(); 
+
+        try {
+            $user = $this->userRepository->delete($id);
+
+            DB::commit(); 
+
+            return $user;  
+        } catch (\Exception $e) {
+            DB::rollBack(); 
+            Log::error('Error updating user: ' . $e->getMessage());
+            return false; 
+        }
+    }
 }
 
