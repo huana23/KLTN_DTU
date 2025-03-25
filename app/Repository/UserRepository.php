@@ -44,6 +44,7 @@ class UserRepository implements UserRepositoryInterface
     {
         
         $user = User::create($payload); 
+
         return $user->fresh();
     }  
 

@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dethis', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('ngayThi')->unique();
-            $table->integer('thoiGianThi')->unique();
-            $table->integer('soLuongCauHoi')->unique();
-            $table->timestamps();
-            
-
+        Schema::table('dethis', function (Blueprint $table) {
+            $table->string('tenBaiThi')->nullable(); 
         });
     }
 
@@ -27,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dethis');
+        Schema::table('dethis', function (Blueprint $table) {
+            $table->dropColumn('tenBaiThi');
+        });
     }
 };

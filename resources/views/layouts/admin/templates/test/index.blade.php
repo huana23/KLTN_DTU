@@ -9,25 +9,52 @@
             </ol>
             </nav>
         </div>
-        <div class="card card__test">
-            <div class="card__left">
-                <h1>bài tesy 1</h1>
-                <h1>thời gian</h1>
-                <h1>số lượng</h1>
-                <h1>ngày thành lâpj</h1>
+        <form action="">
+          <ul class="navbar-nav navbar-nav--test row">
+              <li class="nav-item col-10">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                  <input type="text" class="form-control" placeholder="Tìm kiếm bài kiểm tra">
+                </form>
+              </li>
+              <li class="col-2">
+                  <a class="nav-link btn btn-success create-new-button" href="{{route('admin.test.create')}}">+ Tạo bài kiểm tra</a>
+                </li>
+          </ul>
+        </form>
+        <div class="row">
+          @if(isset($allTests) && is_object($allTests))
+            @foreach($allTests as $test)
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body py-3 px-5">
+                  <div class="row align-items-center">
+                    <div class="col-9 col-sm-9 col-xl-9">
+                      <h4>Tên bài kiểm tra : {{ $test->tenBaiThi }}</h4>
+                      <p class="mb-2">Thời gian thực hiện : {{ $test->thoiGianThi }} phút</p>
+                      <p class="mb-2">Ngày thi : {{ $test->ngayThi }}</p>
+                      <p class="mb-2">Số lượng câu hỏi : {{ $test->soLuongCauHoi }} câu</p>
+                    </div>
+                    
+                    <div class="col-3 col-sm-3 col-xl-3 p-0 text-center">
+                        <a href="" class="badge badge-outline-success">
+                            <span class="menu-icon">
+                              <i class="mdi mdi-calendar-edit"></i>
+                              Chỉnh sửa
+                            </span>
+                          </a>
+                          <a href="" class="badge badge-outline-danger">
+                            <span class="menu-icon"><i class="mdi mdi-delete"></i>Xoá</span>
+                          </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="card__right">
-                <a href="" class="btn btn-info btn__customer">
-                    <span class="menu-icon">
-                      <i class="mdi mdi-calendar-edit"></i>
-                    </span>
-                  </a>
-                  <a href="" class="btn btn-danger btn__customer">
-                    <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
-                  </a>
-            </div>
+            @endforeach
+          @endif
         </div>
+
     </div>
+    {{$allTests->links('pagination::bootstrap-4')}}
 </div>
   

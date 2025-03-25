@@ -144,3 +144,8 @@
     width: 50%; 
 
 }
+.navbar-nav--test{
+    align-items:center;
+    flex-direction: row;
+    margin-bottom: 20px;
+}

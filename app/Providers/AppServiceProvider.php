@@ -12,6 +12,9 @@ class AppServiceProvider extends ServiceProvider
     public $bindings = [
         'App\Services\Interfaces\UserServiceInterface' => 'App\Services\UserService',
         'App\Repository\Interfaces\UserRepositoryInterface' => 'App\Repository\UserRepository',
+
+        'App\Services\Interfaces\TestServiceInterface' => 'App\Services\TestService',
+        'App\Repository\Interfaces\TestRepositoryInterface' => 'App\Repository\TestRepository',
     ];
 
     public function register(): void
