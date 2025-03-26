@@ -13,6 +13,10 @@ class AppServiceProvider extends ServiceProvider
         'App\Services\Interfaces\UserServiceInterface' => 'App\Services\UserService',
         'App\Repository\Interfaces\UserRepositoryInterface' => 'App\Repository\UserRepository',
 
+
+        'App\Services\Interfaces\SubjectServiceInterface' => 'App\Services\SubjectService',
+        'App\Repository\Interfaces\SubjectRepositoryInterface' => 'App\Repository\SubjectRepository',
+
         'App\Services\Interfaces\TestServiceInterface' => 'App\Services\TestService',
         'App\Repository\Interfaces\TestRepositoryInterface' => 'App\Repository\TestRepository',
     ];

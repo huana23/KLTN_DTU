@@ -1,31 +1,35 @@
 <?php
 
 namespace App\Services;
-use App\Services\Interfaces\TestServiceInterface;
+use App\Services\Interfaces\SubjectServiceInterface;
 
-use App\Repository\Interfaces\TestRepositoryInterface as TestRepository;
+use App\Repository\Interfaces\SubjectRepositoryInterface as SubjectRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Models\Test;
+use App\Models\Subject;
 
 /**
- * Class TestService
+ * Class SubjectService
  * @package App\Services
  */
-class TestService implements TestServiceInterface
+class SubjectService implements SubjectServiceInterface
 {
-    protected $testRepository;
+    protected $subjectRepository;
 
    
-    public function __construct(TestRepository $testRepository)
+    public function __construct(SubjectRepository $subjectRepository)
     {
-        $this->testRepository = $testRepository;
+        $this->subjectRepository = $subjectRepository;
     }
-
     public function paginate()
     {
-        $tests =  $this->testRepository->getAllPaginate(); 
+        $tests =  $this->subjectRepository->getAllPaginate(); 
         return $tests;
+    }
+
+    public function classSubject() {
+        $classes =  $this->subjectRepository->getAllClass(); 
+        return $classes;
     }
     public function create($request) 
     {
@@ -34,14 +38,19 @@ class TestService implements TestServiceInterface
         try {
             $payload = $request->except(['_token', 'send']);
 
+            
+            
+            
+            $subject = Subject::create($payload); 
+            
+            
 
-            $test = Test::create($payload); 
-                 
+            
             
 
             DB::commit(); 
 
-            return $test->fresh(); 
+            return $subject->fresh(); 
             
         } catch (\Exception $e) {
             DB::rollBack(); 
@@ -49,6 +58,7 @@ class TestService implements TestServiceInterface
             return false; 
         }
     }
+
 
     public function update($id, $request) 
     {
@@ -59,11 +69,11 @@ class TestService implements TestServiceInterface
 
             $payload = $request->except(['_token', 'send']);
             
-            $test = $this->testRepository->update($id, $payload);
+            $subject = $this->subjectRepository->update($id, $payload);
             
             DB::commit(); 
 
-            return $test;
+            return $subject;
 
             
         } catch (\Exception $e) {
@@ -77,16 +87,15 @@ class TestService implements TestServiceInterface
         DB::beginTransaction(); 
 
         try {
-            $test = $this->testRepository->delete($id);
+            $subject = $this->subjectRepository->delete($id);
 
             DB::commit(); 
 
-            return $test;  
+            return $subject;  
         } catch (\Exception $e) {
             DB::rollBack(); 
             Log::error('Error updating user: ' . $e->getMessage());
             return false; 
         }
     }
-
 }

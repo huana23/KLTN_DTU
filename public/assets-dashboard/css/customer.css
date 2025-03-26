@@ -149,3 +149,6 @@
     flex-direction: row;
     margin-bottom: 20px;
 }
+tbody ,thead {
+    text-align: center;
+}

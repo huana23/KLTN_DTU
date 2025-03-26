@@ -11,7 +11,6 @@ use App\Repository\Interfaces\UserRepositoryInterface as UserRepository;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
-use Illuminate\Http\Requests;
 
 class UserController extends Controller
 {

@@ -2,15 +2,15 @@
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">
-                Thêm mới bài kiểm tra
+                Thêm mới môn học
 
         </h3>
         
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('admin.test')}}">Bài kiểm tra</a></li>
+            <li class="breadcrumb-item"><a href="{{route('admin.subject')}}">Môn học</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                Thêm mới bài kiểm tra
+                Thêm mới môn học
             </li>
           </ol>
         </nav>
@@ -25,14 +25,14 @@
             </div>
         @endif
       <div class="page-content">
-        <form action="{{ route('admin.test.store') }}" method="POST">
+        <form action="{{ route('admin.subject.store') }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-lg-5 grid-margin">
                     <div class="panel-head">
                         <div class="panel-title">Thông tin chung</div>
                         <div class="panel-description">
-                            <p>Nhập thông tin bài kiểm tra</p>
+                            <p>Nhập thông tin môn học</p>
                             <p>Lưu ý những trường hợp đánh dấu <span class="text-danger">(*)</span> là bắt buộc điền</p>
                         </div>
                     </div>
@@ -44,34 +44,34 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <div class="form-group">
-                                            <label for="" class="control-label text-right">Tên bài kiểm tra</label>
-                                                <input type="text"  name="tenBaiThi" value="{{ old('tenBaiThi') }}" class="form-control" placeholder="Nhập tên bài kiểm tra">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <div class="form-group">
-                                            <label for="" class="control-label text-right">Ngày kiểm tra</label>
-                                                <input type="date" name="ngayThi" value="{{ old('ngayThi') }}" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="" class="control-label text-right">Thời gian thi
+                                        <label for="" class="control-label text-right">Tên môn học
                                             <span class="text-danger">(*)</span>
                                         </label>
-                                      <input type="text"name="thoiGianThi" value="{{old('thoiGianThi')}}"  class="form-control"  placeholder="Nhập thời gian thi ( Tính theo phút )">
+                                      <input type="text"  name="tenMonHoc" class="form-control" value="{{old('tenMonHoc')}}"  placeholder="Nhập tên môn học">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="" class="control-label text-right">Số lượng câu hỏi
+                                        <label for="" class="control-label text-right">Mô tả
                                             <span class="text-danger">(*)</span>
                                         </label>
-                                      <input type="text"name="soLuongCauHoi" value="{{old('soLuongCauHoi')}}"  class="form-control"  placeholder="Nhập số lượng câu hỏi">
+                                      <input type="text"name="meTa" value="{{old('meTa')}}"  class="form-control"  placeholder="Nhập họ mô tả">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label >Chọn khối</label>
+                                        <select name="maKhoi" class="form-control">
+                                            @if(isset($allClass) && is_object($allClass))
+                                                @foreach($allClass as $class)
+                                                    <option value="{{ $class->id }}" 
+                                                            @if(old('maKhoi') == $class->id) selected @endif>
+                                                        {{ $class->tenKhoi }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 

@@ -22,7 +22,7 @@
               <span class="input-group-append form__search--append">
                   <button type="submit" name="search" value="search" class="btn btn-primary btn-sm"> Tìm kiếm</button>
               </span>
-              <a href="{{route('admin.user.create')}}" class="btn btn-danger nav-link form__search--danger">
+              <a href="{{route('admin.subject.create')}}" class="btn btn-danger nav-link form__search--danger">
                 <span class="menu-icon"><i class="mdi mdi-account-multiple-plus mr-1"></i> </span>
                 <span class="menu-title">Thêm môn học mới</span>
               </a>
@@ -43,28 +43,37 @@
               </tr>
             </thead>
             <tbody>
-              {{-- @if(isset($allUsers) && is_object($allUsers))
-              @foreach($allUsers as $oneUser) --}}
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  
-                </td>
-                <td>
-                  <a href="" class="btn btn-info btn__customer">
-                    <span class="menu-icon">
-                      <i class="mdi mdi-calendar-edit"></i>
-                    </span>
-                  </a>
-                  <a href="" class="btn btn-danger btn__customer">
-                    <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
-                  </a>
-                </td>
-              </tr>
-              {{-- @endforeach
-              @endif --}}
+              @if(isset($allSubjects) && is_object($allSubjects))
+                @foreach($allSubjects as $onesSubject)
+                <tr>
+                  <td>{{ $loop->iteration}}</td>
+                  <td>{{$onesSubject->tenMonHoc}}</td>
+                  <td>{{$onesSubject->meTa}}</td>
+                  <td>
+                    @php
+                      $class = $allClass->firstWhere('id', $onesSubject->maKhoi);
+                    @endphp
+
+                    @if($class)
+                      {{ $class->meTa }}
+                    @else
+                      Không tìm thấy khối
+                    @endif
+                  </td>
+                        
+                  <td>
+                    <a href="{{route('admin.subject.edit', $onesSubject->id)}}" class="btn btn-info btn__customer">
+                      <span class="menu-icon">
+                        <i class="mdi mdi-calendar-edit"></i>
+                      </span>
+                    </a>
+                    <a href="{{route('admin.subject.delete', $onesSubject->id)}}" class="btn btn-danger btn__customer">
+                      <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
+                    </a>
+                  </td>
+                </tr>
+                @endforeach
+              @endif
             </tbody>
           </table>
         </div>

@@ -2,18 +2,20 @@
 
 namespace App\Repository;
 
-use App\Repository\Interfaces\TestRepositoryInterface;
-use App\Models\Test;
+use App\Repository\Interfaces\SubjectRepositoryInterface;
+use App\Models\Subject;
+use App\Models\ClassSubject;
+
 
 /**
- * Class TestRepository
+ * Class SubjectRepository
  * @package App\Repository
  */
-class TestRepository implements TestRepositoryInterface
+class SubjectRepository implements SubjectRepositoryInterface
 {
     protected $model;
     public function __construct(
-        Test $model
+        Subject $model
     ){
         $this->model = $model;
         
@@ -21,19 +23,23 @@ class TestRepository implements TestRepositoryInterface
 
     public function getAllPaginate()
     {
-        return Test::paginate(10);
+        return Subject::all();
     }
 
+    public function getAllClass() {
+        return ClassSubject::all();
+    }
     public function create(array $payload = [])
     {
         
-        $subject = Test::create($payload); 
+        $subject = Subject::create($payload); 
 
         return $subject->fresh();
     } 
+
     public function findById($id) {
         
-        return Test::find($id);
+        return Subject::find($id);
     }
 
     public function update(int $id, array $payload) {
@@ -44,6 +50,7 @@ class TestRepository implements TestRepositoryInterface
         return false;
     }
 
+    
     public function delete(int $id = 0)  {
         return $this->findById($id)->delete($id);
     }

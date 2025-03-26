@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\SubjectController;
 use App\Http\Controllers\Auth\TestController;
 
 
+
 use App\Models\Subject;
 
 /*
@@ -55,12 +56,12 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('subject', [SubjectController::class, 'index'])->middleware('auth.admin')->name('admin.subject');
-    // Route::get('user/create', [UserController::class, 'create'])->middleware('auth.admin')->name('admin.user.create');
-    // Route::post('user/store', [UserController::class, 'store'])->middleware('auth.admin')->name('admin.user.store');
-    // Route::get('user/edit/{id}', [UserController::class, 'edit'])->middleware('auth.admin')->name('admin.user.edit')->where(['id' => '[0-9]+']);
-    // Route::post('user/update/{id}', [UserController::class, 'update'])->middleware('auth.admin')->name('admin.user.update')->where(['id' => '[0-9]+']);
-    // Route::get('user/delete/{id}', [UserController::class, 'delete'])->middleware('auth.admin')->name('admin.user.delete')->where(['id' => '[0-9]+']);
-    // Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->middleware('auth.admin')->name('admin.user.destroy')->where(['id' => '[0-9]+']);
+    Route::get('subject/create', [SubjectController::class, 'create'])->middleware('auth.admin')->name('admin.subject.create');
+    Route::post('subject/store', [SubjectController::class, 'store'])->middleware('auth.admin')->name('admin.subject.store');
+    Route::get('subject/edit/{id}', [SubjectController::class, 'edit'])->middleware('auth.admin')->name('admin.subject.edit')->where(['id' => '[0-9]+']);
+    Route::post('subject/update/{id}', [SubjectController::class, 'update'])->middleware('auth.admin')->name('admin.subject.update')->where(['id' => '[0-9]+']);
+    Route::get('subject/delete/{id}', [SubjectController::class, 'delete'])->middleware('auth.admin')->name('admin.subject.delete')->where(['id' => '[0-9]+']);
+    Route::delete('subject/destroy/{id}', [SubjectController::class, 'destroy'])->middleware('auth.admin')->name('admin.subject.destroy')->where(['id' => '[0-9]+']);
 
 
 });
@@ -70,10 +71,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('test', [TestController::class, 'index'])->middleware('auth.admin')->name('admin.test');
     Route::get('test/create', [TestController::class, 'create'])->middleware('auth.admin')->name('admin.test.create');
     Route::post('test/store', [TestController::class, 'store'])->middleware('auth.admin')->name('admin.test.store');
-    // Route::get('test/edit/{id}', [TestController::class, 'edit'])->middleware('auth.admin')->name('admin.test.edit')->where(['id' => '[0-9]+']);
-    // Route::post('test/update/{id}', [TestController::class, 'update'])->middleware('auth.admin')->name('admin.test.update')->where(['id' => '[0-9]+']);
-    // Route::get('test/delete/{id}', [TestController::class, 'delete'])->middleware('auth.admin')->name('admin.test.delete')->where(['id' => '[0-9]+']);
-    // Route::delete('test/destroy/{id}', [TestController::class, 'destroy'])->middleware('auth.admin')->name('admin.test.destroy')->where(['id' => '[0-9]+']);
-                            
+    Route::get('test/edit/{id}', [TestController::class, 'edit'])->middleware('auth.admin')->name('admin.test.edit')->where(['id' => '[0-9]+']);
+    Route::post('test/update/{id}', [TestController::class, 'update'])->middleware('auth.admin')->name('admin.test.update')->where(['id' => '[0-9]+']);
+    Route::get('test/delete/{id}', [TestController::class, 'delete'])->middleware('auth.admin')->name('admin.test.delete')->where(['id' => '[0-9]+']);
+    Route::delete('test/destroy/{id}', [TestController::class, 'destroy'])->middleware('auth.admin')->name('admin.test.destroy')->where(['id' => '[0-9]+']);
+
 
 });
+
+
+

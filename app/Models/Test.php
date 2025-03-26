@@ -9,6 +9,7 @@ class Test extends Model
 {
     use HasFactory;
     protected $table = 'dethis';
-    protected $fillable = ['ngayThi', 'thoiGianThi', 'soLuongCauHoi', 'tenBaiThi'];
+
+    protected $fillable = ['tenBaiThi','ngayThi', 'thoiGianThi', 'soLuongCauHoi'];
    
 }

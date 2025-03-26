@@ -3,10 +3,10 @@
 namespace App\Services\Interfaces;
 
 /**
- * Interface TestServiceInterface
+ * Interface SubjectServiceInterface
  * @package App\Services\Interfaces
  */
-interface TestServiceInterface
+interface SubjectServiceInterface
 {
     // public function paginate($request);
     

@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class ClassSubject extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'tenMonHoc',
+        'tenKhoi',
         'meTa',
-        'maKhoi',
 
 
     ];
-    protected $table = 'monhocs';
-
+    protected $table = 'khois';
 }

@@ -2,7 +2,7 @@
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">
-                Thêm mới bài kiểm tra
+                Sửa bài kiểm tra
 
         </h3>
         
@@ -10,7 +10,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.test')}}">Bài kiểm tra</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                Thêm mới bài kiểm tra
+                Sửa bài kiểm tra
             </li>
           </ol>
         </nav>
@@ -25,7 +25,7 @@
             </div>
         @endif
       <div class="page-content">
-        <form action="{{ route('admin.test.store') }}" method="POST">
+        <form action="{{ route('admin.test.update', $oneTest->id) }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-lg-5 grid-margin">
@@ -46,7 +46,7 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="" class="control-label text-right">Tên bài kiểm tra</label>
-                                                <input type="text"  name="tenBaiThi" value="{{ old('tenBaiThi') }}" class="form-control" placeholder="Nhập tên bài kiểm tra">
+                                                <input type="text"  name="tenBaiThi" value="{{ $oneTest->tenBaiThi }}" class="form-control" placeholder="Nhập tên bài kiểm tra">
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="" class="control-label text-right">Ngày kiểm tra</label>
-                                                <input type="date" name="ngayThi" value="{{ old('ngayThi') }}" class="form-control">
+                                                <input type="date" name="ngayThi" value="{{ Carbon\Carbon::parse($oneTest->ngayThi)->format('Y-m-d') }}" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                         <label for="" class="control-label text-right">Thời gian thi
                                             <span class="text-danger">(*)</span>
                                         </label>
-                                      <input type="text"name="thoiGianThi" value="{{old('thoiGianThi')}}"  class="form-control"  placeholder="Nhập thời gian thi ( Tính theo phút )">
+                                      <input type="text"name="thoiGianThi" value="{{ $oneTest->thoiGianThi }}"  class="form-control"  placeholder="Nhập thời gian thi ( Tính theo phút )">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -71,7 +71,7 @@
                                         <label for="" class="control-label text-right">Số lượng câu hỏi
                                             <span class="text-danger">(*)</span>
                                         </label>
-                                      <input type="text"name="soLuongCauHoi" value="{{old('soLuongCauHoi')}}"  class="form-control"  placeholder="Nhập số lượng câu hỏi">
+                                      <input type="text"name="soLuongCauHoi" value="{{$oneTest->soLuongCauHoi}}"  class="form-control"  placeholder="Nhập số lượng câu hỏi">
                                     </div>
                                 </div>
                                 
