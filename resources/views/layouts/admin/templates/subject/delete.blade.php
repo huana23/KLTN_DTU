@@ -75,7 +75,7 @@
                                     </div>
                                     
                                     <div class="col-lg-12">
-                                        <button type="submit" name="send" value="send" class="btn btn-primary mr-2">Xoá</button>
+                                        <button type="submit" name="send" value="send" class="btn btn-danger mr-2">Xoá</button>
                                         <button class="btn btn-dark">Huỷ bỏ</button>
                                     </div>
                                 </div>

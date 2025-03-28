@@ -16,6 +16,13 @@ class Subject extends Model
 
 
     ];
+
+    public function cauHois()
+    {
+        return $this->hasMany(Question::class, 'maMonHoc', 'id');
+    }
+
+    
     protected $table = 'monhocs';
 
 }

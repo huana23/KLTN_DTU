@@ -19,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
 
         'App\Services\Interfaces\TestServiceInterface' => 'App\Services\TestService',
         'App\Repository\Interfaces\TestRepositoryInterface' => 'App\Repository\TestRepository',
+
+        'App\Services\Interfaces\ClassServiceInterface' => 'App\Services\ClassService',
+        'App\Repository\Interfaces\ClassRepositoryInterface' => 'App\Repository\ClassRepository',
+
+        'App\Services\Interfaces\QuestionServiceInterface' => 'App\Services\QuestionService',
+        'App\Repository\Interfaces\QuestionRepositoryInterface' => 'App\Repository\QuestionRepository',
     ];
 
     public function register(): void

@@ -81,7 +81,7 @@
           <li class="nav-item nav-item-li menu-items">
             <a
               class="nav-link"
-              href="{{ route('admin.dashboard', ['template' => 'class']) }}"
+              href="{{ route('admin.class') }}"
               data-template="class"
             >
               <span class="menu-icon">
@@ -93,7 +93,7 @@
           <li class="nav-item nav-item-li menu-items">
             <a
               class="nav-link"
-              href="{{ route('admin.dashboard', ['template' => 'question']) }}"
+              href="{{ route('admin.question') }}"
               data-template="question"
             >
               <span class="menu-icon">

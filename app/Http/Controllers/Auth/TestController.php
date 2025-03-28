@@ -37,7 +37,7 @@ class TestController extends Controller
     public function create(){
 
         $users = Auth::user();
-        // $allClass = $this->testtService->classSubject();
+        
         
         
         $templateView = 'layouts.admin.templates.test.store';

@@ -78,8 +78,8 @@ class TestService implements TestServiceInterface
 
         try {
             $test = $this->testRepository->delete($id);
-
             DB::commit(); 
+           
 
             return $test;  
         } catch (\Exception $e) {

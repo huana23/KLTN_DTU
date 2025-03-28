@@ -9,6 +9,10 @@ use App\Http\Controllers\Auth\FunctionController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\SubjectController;
 use App\Http\Controllers\Auth\TestController;
+use App\Http\Controllers\Auth\ClassController;
+use App\Http\Controllers\Auth\QuestionController;
+
+
 
 
 
@@ -75,6 +79,31 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('test/update/{id}', [TestController::class, 'update'])->middleware('auth.admin')->name('admin.test.update')->where(['id' => '[0-9]+']);
     Route::get('test/delete/{id}', [TestController::class, 'delete'])->middleware('auth.admin')->name('admin.test.delete')->where(['id' => '[0-9]+']);
     Route::delete('test/destroy/{id}', [TestController::class, 'destroy'])->middleware('auth.admin')->name('admin.test.destroy')->where(['id' => '[0-9]+']);
+
+
+});
+
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('class', [ClassController::class, 'index'])->middleware('auth.admin')->name('admin.class');
+    Route::get('class/create', [ClassController::class, 'create'])->middleware('auth.admin')->name('admin.class.create');
+    Route::post('class/store', [ClassController::class, 'store'])->middleware('auth.admin')->name('admin.class.store');
+    Route::get('class/edit/{id}', [ClassController::class, 'edit'])->middleware('auth.admin')->name('admin.class.edit')->where(['id' => '[0-9]+']);
+    Route::post('class/update/{id}', [ClassController::class, 'update'])->middleware('auth.admin')->name('admin.class.update')->where(['id' => '[0-9]+']);
+    Route::get('class/delete/{id}', [ClassController::class, 'delete'])->middleware('auth.admin')->name('admin.class.delete')->where(['id' => '[0-9]+']);
+    Route::delete('class/destroy/{id}', [ClassController::class, 'destroy'])->middleware('auth.admin')->name('admin.class.destroy')->where(['id' => '[0-9]+']);
+
+
+});
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('question', [QuestionController::class, 'index'])->middleware('auth.admin')->name('admin.question');
+    Route::get('question/create', [QuestionController::class, 'create'])->middleware('auth.admin')->name('admin.question.create');
+    Route::post('question/store', [QuestionController::class, 'store'])->middleware('auth.admin')->name('admin.question.store');
+    Route::get('question/edit/{id}', [QuestionController::class, 'edit'])->middleware('auth.admin')->name('admin.question.edit')->where(['id' => '[0-9]+']);
+    Route::post('question/update/{id}', [QuestionController::class, 'update'])->middleware('auth.admin')->name('admin.question.update')->where(['id' => '[0-9]+']);
+    Route::get('question/delete/{id}', [QuestionController::class, 'delete'])->middleware('auth.admin')->name('admin.question.delete')->where(['id' => '[0-9]+']);
+    Route::delete('question/destroy/{id}', [QuestionController::class, 'destroy'])->middleware('auth.admin')->name('admin.question.destroy')->where(['id' => '[0-9]+']);
 
 
 });
