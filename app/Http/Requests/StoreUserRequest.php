@@ -27,7 +27,7 @@ class StoreUserRequest extends FormRequest
             'dienThoai' => 'required|string|max:15',      
             'gioiTinh' => 'required|in:0,1',                        
             'diaChi' => 'required|string|max:255',                                 
-            'maThanhVien' => 'required|string|max:10|unique:users,maThanhVien', 
+            'maThanhVien' => 'required|string|unique:users,maThanhVien', 
             'password' => 'required|string|min:6',                                
             're_password' => 'required|string|same:password',                     
         ];
@@ -58,7 +58,6 @@ class StoreUserRequest extends FormRequest
             
             'maThanhVien.required' => 'Vui lòng nhập mã thành viên.',
             'maThanhVien.string' => 'Mã thành viên phải là một chuỗi ký tự.',
-            'maThanhVien.max' => 'Mã thành viên không được vượt quá 10 ký tự.',
             'maThanhVien.unique' => 'Mã thành viên này đã tồn tại.',
             
             'password.required' => 'Vui lòng nhập mật khẩu.',

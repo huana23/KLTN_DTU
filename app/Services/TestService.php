@@ -34,7 +34,6 @@ class TestService implements TestServiceInterface
         try {
             $payload = $request->except(['_token', 'send']);
 
-
             $test = Test::create($payload); 
                  
             
@@ -75,18 +74,33 @@ class TestService implements TestServiceInterface
 
     public function destroy($id) {
         DB::beginTransaction(); 
-
+    
         try {
-            $test = $this->testRepository->delete($id);
-            DB::commit(); 
+            
+            $test = $this->testRepository->findById($id);
+    
            
-
-            return $test;  
+            if (!$test) {
+                throw new \Exception("Bài kiểm tra không tồn tại."); 
+            }
+    
+            
+            DB::table('ketquas')->where('maDeThi', $id)->delete();
+    
+            
+            $test->delete();
+    
+            DB::commit();
+    
+            return true; 
         } catch (\Exception $e) {
-            DB::rollBack(); 
-            Log::error('Error updating user: ' . $e->getMessage());
+            DB::rollBack();
+            Log::error('Error deleting test: ' . $e->getMessage());
             return false; 
         }
     }
+    
+
+    
 
 }

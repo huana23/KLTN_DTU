@@ -30,43 +30,59 @@
           </form>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-          <table class="table table__customer">
-            <thead>
-              <tr>
-                <th>STT</th>
-                <th>Tên lớp</th>
-                <th>Mô tả</th>
-                <th>Hành Động</th>
-              </tr>
-            </thead>
-            <tbody>
-              @if(isset($allClass) && is_object($allClass))
-                @foreach($allClass as $onesClass)
-                <tr>
-                    <td>{{ $loop->iteration}}</td>
-                    <td>{{$onesClass->tenKhoi}}</td>
-                    <td>{{$onesClass->meTa}}</td>
-
+      <div class="row mt-5">
+        @if(isset($allClass) && is_object($allClass))
+          @foreach($allClass as $onesClass)
+        <div class="col-md-3">
+          <div class="block block-rounded">
+            <div class="block-header block-header-default">
+              <h3 class="block-title block-class-name">{{$onesClass->tenKhoi}}</h3>
+              <div class="block-options">
+                <div class="dropdown">
+                  <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="mdi mdi-settings"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7" style="">
+                    <h6 class="dropdown-header">Settings</h6>
+                    <div class="dropdown-divider"></div>
                     
-                        
-                  <td>
-                    <a href="{{ route('admin.class.edit', $onesClass->id) }}" class="btn btn-info btn__customer">
-                      <span class="menu-icon">
-                        <i class="mdi mdi-calendar-edit"></i>
-                      </span>
-                    </a>
-                    <a href="{{route('admin.class.delete', $onesClass->id)}}" class="btn btn-danger btn__customer">
-                      <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
-                    </a>
-                  </td>
-                </tr>
-                @endforeach
-              @endif
-            </tbody>
-          </table>
+                      <a href="{{ route('admin.class.edit', $onesClass->id) }}" class="dropdown-item btn btn-info btn__customer dropdown-item__customer">
+                        <span class="menu-icon"> 
+                          <i class="mdi mdi-calendar-edit"></i>
+                          Sửa
+                        </span>
+                      </a>
+                      <a href="{{route('admin.class.delete', $onesClass->id)}}" class="dropdown-item btn btn-danger btn__customer dropdown-item__customer">
+                        <span class="menu-icon"> <i class="mdi mdi-delete"></i>Xoá</span>
+                      </a>
+                      <a href="{{route('admin.class.list-class', $onesClass->id)}}" class="dropdown-item btn btn-info btn__customer dropdown-item__customer">
+                        <span class="menu-icon"> 
+                          <i class="mdi mdi-information"></i>
+  
+                          Danh sách học sinh
+                        </span>
+                      </a>
+                      <a href="{{ route('export.list.class', ['class' => $onesClass->id]) }}" class="dropdown-item btn btn-info btn__customer dropdown-item__customer">
+                        <span class="menu-icon"> 
+                          <i class="mdi mdi-select-group"></i>
+  
+                          Xuất danh sách lớp học
+                        </span>
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="block-content">
+              <p class="block-class-note">Mô tả : {{$onesClass->meTa}}</p>
+              <p class="Si-So">Sỉ số: 
+                <span>{{ $studentCounts[$onesClass->id] ?? 0 }}</span>
+              </p>
+            </div>
+          </div>
         </div>
+          @endforeach
+        @endif
       </div>
     </div>
   {{$allClass->links('pagination::bootstrap-4')}}

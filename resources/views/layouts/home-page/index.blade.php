@@ -73,6 +73,9 @@
         <a class="btn-getstarted" href="{{ route('auth.login') }}">
           Đăng Nhập
         </a>
+        
+
+        
       </div>
     </header>
 
@@ -89,7 +92,7 @@
           >
             <div class="col-xl-6 col-lg-8">
               <h2>
-                Hệ thống thi và tạo đề thi trắc nghiệm online tốt nhất
+                Hệ thống thi trắc nghiệm online dành cho học sinh Cấp 1
                 <span>.</span>
               </h2>
             </div>

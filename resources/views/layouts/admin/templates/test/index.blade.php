@@ -17,7 +17,7 @@
               <option value="{{$i}}">{{$i}} bản ghi</option>
               @endfor
             </select>
-            <div class="input-group form__search--group">
+            <div class="input-group form__search--group"> 
               <input type="text" name="keyword" value="" placeholder="Nhập từ khoá tìm kiếm" class="form-control form__search--input">
               <span class="input-group-append form__search--append">
                   <button type="submit" name="search" value="search" class="btn btn-primary btn-sm"> Tìm kiếm</button>
@@ -38,6 +38,7 @@
                 <th>STT</th>
                 <th>Tên bài kiểm tra</th>
                 <th>Ngày kiểm tra</th>
+                <th>Ngày kết thúc</th>
                 <th>Thời gian kiểm tra</th>
                 <th>Số lượng câu hỏi</th>
                 <th>Hành Động</th>
@@ -50,18 +51,44 @@
                     <td>{{ $loop->iteration}}</td>
                     <td>{{$onesTest->tenBaiThi}}</td>
                     <td>{{ \Carbon\Carbon::parse($onesTest->ngayThi)->format('d/m/Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($onesTest->ngayKetThucThi)->format('d/m/Y') }}</td>
+
                   <td>{{$onesTest->thoiGianThi}} phút</td>
                   <td>{{$onesTest->soLuongCauHoi}} câu</td>
                         
                   <td>
-                    <a href="{{ route('admin.test.edit', $onesTest->id) }}" class="btn btn-info btn__customer">
-                      <span class="menu-icon">
-                        <i class="mdi mdi-calendar-edit"></i>
-                      </span>
-                    </a>
-                    <a href="{{route('admin.test.delete', $onesTest->id)}}" class="btn btn-danger btn__customer">
-                      <span class="menu-icon"><i class="mdi mdi-delete"></i></span>
-                    </a>
+                    
+                    <div class="block-options">
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-dark dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="mdi mdi-settings"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7" style="">
+                            <a href="{{ route('admin.test.edit', $onesTest->id) }}" class="btn btn-info btn__customer dropdown-item dropdown-item__customer">
+                              <span class="menu-icon">
+                                <i class="mdi mdi-calendar-edit"></i>
+                                Sửa bài kiểm tra
+                              </span>
+                            </a>
+                            <a href="{{route('admin.test.delete', $onesTest->id)}}" class="btn btn-danger btn__customer dropdown-item dropdown-item__customer">
+                              <span class="menu-icon"><i class="mdi mdi-delete"></i>Xoá bài kiểm tra</span>
+                              
+                            </a>
+                            <a href="{{route('admin.test.list-test',  $onesTest->id)}}" class="dropdown-item btn btn-info btn__customer dropdown-item__customer">
+                              <span class="menu-icon"> 
+                                <i class="mdi mdi-information"></i>
+                                Danh sách câu hỏi
+                              </span>
+                            </a>
+                            <a href="{{route('admin.test.assign-exam',  $onesTest->id)}}" class="dropdown-item btn btn-info btn__customer dropdown-item__customer">
+                              <span class="menu-icon"> 
+                                <i class="mdi mdi-google-classroom"></i>
+                                Giao bài kiểm tra
+                              </span>
+                            </a>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 @endforeach

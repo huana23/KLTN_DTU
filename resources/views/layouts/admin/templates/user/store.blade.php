@@ -116,7 +116,6 @@
                                         <label for="" class="control-label text-right">Ngày Sinh</label>
                                             <input type="date" name="ngaySinh" value="{{ old('ngaySinh', (isset($oneUser->ngaySinh)) ? date('Y-m-d', strtotime($oneUser->ngaySinh)) : '') }}" class="form-control">
                                     </div>
-                                    
                                 </div>                                                                
                                 <div class="col-lg-6">
                                     <div class="form-group">

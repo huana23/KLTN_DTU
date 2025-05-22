@@ -55,7 +55,7 @@
                     @endphp
 
                     @if($class)
-                      {{ $class->meTa }}
+                      {{ $class->tenKhoi }}
                     @else
                       Không tìm thấy khối
                     @endif

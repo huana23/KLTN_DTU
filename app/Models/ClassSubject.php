@@ -15,5 +15,20 @@ class ClassSubject extends Model
 
 
     ];
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'chitietkhoi', 'maKhoi', 'maThanhVien');
+    }
+    public function dethis()
+    {
+        return $this->belongsToMany(Test::class, 'giaodethi', 'maKhoi', 'maDeThi');
+    }
+
+    public function subjects() {
+        return $this->hasMany(Subject::class, 'maKhoi');
+    }
+
+
+
     protected $table = 'khois';
 }

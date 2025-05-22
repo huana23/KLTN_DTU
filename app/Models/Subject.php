@@ -22,6 +22,12 @@ class Subject extends Model
         return $this->hasMany(Question::class, 'maMonHoc', 'id');
     }
 
+
+    public function khoi()
+{
+    return $this->belongsTo(ClassSubject::class, 'maKhoi', 'id');
+}
+
     
     protected $table = 'monhocs';
 

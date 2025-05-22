@@ -28,9 +28,15 @@ class User extends Authenticatable
         'diaChi',
         'img',
         'is_admin',
+        'is_premium'
 
 
     ];
+
+    public function khois()
+    {
+        return $this->belongsToMany(ClassSubject::class, 'chitietkhoi', 'maThanhVien', 'maKhoi');
+    }
     protected $table = 'users';
     /**
      * The attributes that should be hidden for serialization.

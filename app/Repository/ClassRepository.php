@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Repository\Interfaces\ClassRepositoryInterface;
 use App\Models\ClassSubject;
+use App\Models\ClassDetail;
+
 
 
 /**
@@ -39,5 +41,9 @@ class ClassRepository implements ClassRepositoryInterface
 
     public function delete(int $id = 0)  {
         return $this->findById($id)->delete($id);
+    }
+
+    public function allUserClass() {
+        return ClassDetail::with('user')->get();
     }
 }

@@ -54,10 +54,35 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="" class="control-label text-right">Ngày kiểm tra</label>
-                                                <input type="date" name="ngayThi" value="{{ old('ngayThi') }}" class="form-control">
+                                                <input type="datetime-local" name="ngayThi" value="{{ old('ngayThi') }}" class="form-control">
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="" class="control-label text-right">Ngày kết thúc kiểm tra</label>
+                                                <input type="datetime-local" name="ngayKetThucThi" value="{{ old('ngayKetThucThi') }}" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Chọn môn thi</label>
+                                        <select name="monThi" class="form-control" id="monThi">
+                                            <option value="" disabled selected>Chọn môn thi</option>
+                                            @if(isset($allSubject) && is_object($allSubject))
+                                                @foreach($allSubject as $subject)
+                                                    <option value="{{ $subject->id }}" 
+                                                            @if(old('monThi') == $subject->id) selected @endif>
+                                                        {{ $subject->tenMonHoc }} ({{ $subject->meTa }})
+                                                    </option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="" class="control-label text-right">Thời gian thi

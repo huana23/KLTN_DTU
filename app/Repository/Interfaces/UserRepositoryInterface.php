@@ -8,6 +8,7 @@ namespace App\Repository\Interfaces;
  */
 interface UserRepositoryInterface
 {
+    public function getAll();
     public function getAllPaginate();
     public function create(array $payload = []);
     public function findById($id);

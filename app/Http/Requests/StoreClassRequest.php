@@ -22,8 +22,9 @@ class StoreClassRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tenKhoi' => 'required',
-           'meTa' => 'required',    
+            'tenKhoi' => 'required|unique:khois,tenKhoi',
+            
+            'meTa' => 'required',    
 
         ];
     }
@@ -32,7 +33,7 @@ class StoreClassRequest extends FormRequest
     {
         return [
             'tenKhoi.required' => 'Tên lớp học là bắt buộc.',
-            
+            'tenKhoi.unique' => 'Tên lớp học đã tồn tại.',
 
             'meTa.required' => 'Mô tả là bắt buộc.',
 

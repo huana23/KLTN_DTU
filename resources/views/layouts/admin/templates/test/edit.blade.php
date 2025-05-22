@@ -54,7 +54,15 @@
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label for="" class="control-label text-right">Ngày kiểm tra</label>
-                                                <input type="date" name="ngayThi" value="{{ Carbon\Carbon::parse($oneTest->ngayThi)->format('Y-m-d') }}" class="form-control">
+                                               <input type="datetime-local" name="ngayThi"value="{{ \Carbon\Carbon::parse($oneTest->ngayThi)->format('Y-m-d\TH:i') }}"class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="" class="control-label text-right">Ngày kết thúc kiểm tra</label>
+                                                <input type="datetime-local" name="ngayKetThucThi" value="{{ \Carbon\Carbon::parse($oneTest->ngayKetThucThi)->format('Y-m-d\TH:i') }}" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -74,6 +82,7 @@
                                       <input type="text"name="soLuongCauHoi" value="{{$oneTest->soLuongCauHoi}}"  class="form-control"  placeholder="Nhập số lượng câu hỏi">
                                     </div>
                                 </div>
+
                                 
                                 <div class="col-lg-12">
                                     <button type="submit" name="send" value="send" class="btn btn-primary mr-2">Lưu lại</button>

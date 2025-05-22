@@ -1,0 +1,73 @@
+.about,.tests{
+    min-height: 1000vh;
+}
+
+.img__information{
+    width: 150px;
+    height: 100px;
+}
+.block {
+    margin-bottom: 1.75rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgb(29 29 30 / 50%), 0 1px 2px rgba(214, 221, 237, 0.5);
+}
+
+
+.block-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    transition: opacity 0.25s ease-out;
+}
+.block-content {
+    transition: opacity 0.25s ease-out;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem;
+    overflow-x: visible;
+}
+.bg-body-light {
+    background-color: #f8f9fc;
+}
+.block-content.block-content-full {
+    padding-bottom: 1.25rem;
+}
+.img-avatar {
+    display: inline-block !important;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+.img-avatar.img-avatar32 {
+    width: 32px;
+    height: 32px;
+}
+.img-avatar-thumb {
+    margin: 0.25rem;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.3);
+}
+
+.offcanvas.offcanvas-end.offcanvas-end-customer{
+    width: 35% !important;
+}
+
+.offcanvas-description{
+    margin-left: 10px;
+}
+
+.nav.nav-start-test{
+    width: 80.5% !important;
+}
+
+.nav-header{
+    margin-top: 80px;
+}
+.hover-option:hover .form-check-label {
+    color: #0d6efd;
+    font-weight: 600;
+}
+.line-height-custom {
+    line-height: 20px;
+}

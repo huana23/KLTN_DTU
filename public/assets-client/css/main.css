@@ -161,6 +161,7 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
+  height: 120px;
   border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
@@ -177,6 +178,7 @@ h6 {
 .header .logo h1 {
   font-size: 24px;
   margin: 0;
+  text-transform: capitalize;
   font-weight: 700;
   color: var(--heading-color);
 }
@@ -577,6 +579,7 @@ section,
 
 .hero h2 {
   margin: 0;
+  text-transform: capitalize;
   font-size: 64px;
   font-weight: 700;
 }
@@ -611,6 +614,7 @@ section,
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
+    text-transform: capitalize;
   }
 
   .hero p {

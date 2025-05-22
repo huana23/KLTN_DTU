@@ -3,7 +3,7 @@
 
 @section('content')
   <div class="container-scroller">
-    @if (isset($users) && is_object($users))
+    {{-- @if (isset($users) && is_object($users)) --}}
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div
           class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
@@ -18,14 +18,14 @@
                 <div class="count-indicator">
                   <img
                     class="img-xs rounded-circle"
-                    src="{{ $users->img }}"
+                    src="{{ auth()->user()->img }}"
                     alt="avt"
                   />
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">{{ $users->hoTen }}</h5>
-                  <span>{{ $users->email }}</span>
+                  <h5 class="mb-0 font-weight-normal">{{ auth()->user()->hoTen }}</h5>
+                  <span>{{ auth()->user()->email }}</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown">
@@ -102,7 +102,7 @@
               <span class="menu-title">Câu hỏi</span>
             </a>
           </li>
-          <li class="nav-item nav-item-li menu-items {{ Route::currentRouteName() == 'admin.user' ? 'active' : '' }}">
+          <li class="nav-item nav-item-li menu-items">
             <a
               class="nav-link"
               href="{{ route('admin.user') }}"
@@ -136,6 +136,18 @@
                 <i class="mdi mdi-file-document-box"></i>
               </span>
               <span class="menu-title">Bài Kiểm Tra</span>
+            </a>
+          </li>
+          <li class="nav-item nav-item-li menu-items">
+            <a
+              class="nav-link"
+              href="{{ route('admin.result') }}"
+              data-template="result"
+            >
+              <span class="menu-icon">
+                <i class="mdi mdi-notebook-multiple"></i>
+              </span>
+              <span class="menu-title">Xem kết quả</span>
             </a>
           </li>
         </ul>
@@ -195,11 +207,11 @@
                   <div class="navbar-profile">
                     <img
                       class="img-xs rounded-circle"
-                      src="{{ $users->img }}"
+                      src="{{ auth()->user()->img }}"
                       alt="avt"
                     />
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">
-                      {{ $users->hoTen }}
+                      {{ auth()->user()->hoTen }}
                     </p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
@@ -242,6 +254,6 @@
         @include($templateView)
       </div>
       <!-- page-body-wrapper ends -->
-    @endif
+    {{-- @endif --}}
   </div>
 @endsection

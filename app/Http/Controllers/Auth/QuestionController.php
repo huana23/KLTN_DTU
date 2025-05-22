@@ -13,8 +13,10 @@ use App\Http\Requests\StoreQuestionRequest;
 
 class QuestionController extends Controller
 {
+
     protected $questionService;
     protected $questionRepository;
+
 
     public function __construct(
         QuestionService $questionService,
@@ -23,6 +25,7 @@ class QuestionController extends Controller
     {
         $this->questionService = $questionService;
         $this->questionRepository = $questionRepository;
+
     }
     public function index()
     {

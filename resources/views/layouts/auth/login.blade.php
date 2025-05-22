@@ -1,55 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-    <link
-      rel="stylesheet"
-      href="{{ asset('assets-dashboard/css/login/style.css') }}"
-    />
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('assets-dashboard/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-dashboard/vendors/css/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('assets-dashboard/css/style.css') }}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{ asset('assets-dashboard/images/favicon.png') }}"/>
   </head>
   <body>
-    <!-- partial:index.partial.html -->
-    <body>
-      <section class="container">
-        <div class="login-container">
-          <div class="circle circle-one"></div>
-          <div class="form-container">
-            <img
-              src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png"
-              alt="illustration"
-              class="illustration"
-            />
-            <h1 class="opacity">Đăng Nhập</h1>
-            <form accept="" method="POST" action="{{ route('auth.login') }}">
-              @csrf
-              <input type="text" name="email" placeholder="Tài Khoản" />
-              @if ($errors->has('email'))
-                <span class="error-message">
-                  {{ $errors->first('email') }}
-                </span>
-              @endif
-
-              <input type="password" name="password" placeholder="Mật Khẩu" />
-              @if ($errors->has('password'))
-                <span class="error-message">
-                  {{ $errors->first('password') }}
-                </span>
-              @endif
-
-              <button class="opacity">Đăng Nhập</button>
-            </form>
-            <div class="register-forget opacity">
-              <a href="">Đăng kí</a>
-              <a href="">Quên Mật Khẩu</a>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="card col-lg-4 mx-auto">
+              <div class="card-body px-5 py-5">
+                <h3 class="card-title text-left mb-3 text-dark">Đăng nhập</h3>
+                <form accept="" method="POST" action="{{ route('auth.login') }}">
+                  @csrf
+                  <div class="form-group">
+                    <label>Email *</label>
+                    <input type="text" class="form-control p_input" name="email" placeholder="Tài Khoản" />
+                    @if ($errors->has('email'))
+                      <span class="error-message">
+                        {{ $errors->first('email') }}
+                      </span>
+                    @endif
+                  </div>
+                  <div class="form-group">
+                    <label>Mật khẩu *</label>
+                    <input type="password" class="form-control p_input" name="password" placeholder="Mật Khẩu" />
+                    @if ($errors->has('password'))
+                      <span class="error-message">
+                        {{ $errors->first('password') }}
+                      </span>
+                    @endif
+                  </div>
+                  <div class="form-group d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">Ghi nhớ</label>
+                    </div>
+                    <a href="#" class="forgot-pass">Quên mật khẩu</a>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Đăng nhập</button>
+                  </div>
+                  <div class="d-flex">
+                    <button class="btn btn-facebook mr-2 col">
+                      <i class="mdi mdi-facebook"></i> Facebook </button>
+                    <button class="btn btn-google col">
+                      <i class="mdi mdi-google-plus"></i> Google plus </button>
+                  </div>
+                  <p class="sign-up">Không có tài khoản? <a href="{{ route('auth.register') }}">Đăng kí</a></p>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="circle circle-two"></div>
+          <!-- content-wrapper ends -->
         </div>
-        <div class="theme-btn-container"></div>
-      </section>
-    </body>
-    <!-- partial -->
-    <script src="{{ asset('assets-dashboard/js/login/script.js') }}"></script>
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{ asset('assets-dashboard/vendors/js/vendor.bundle.base.js') }}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset('assets-dashboard/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('assets-dashboard/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('assets-dashboard/js/misc.js') }}"></script>
+    <script src="{{ asset('assets-dashboard/js/settings.js') }}"></script>
+    <script src="{{ asset('assets-dashboard/js/todolist.js') }}"></script>
+    <!-- endinject -->
   </body>
 </html>

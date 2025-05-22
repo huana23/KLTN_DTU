@@ -33,5 +33,11 @@ class Question extends Model
     {
         return $this->belongsTo(Subject::class, 'maMonHoc', 'id');
     }
+
+    public function dethis()
+    {
+        return $this->belongsToMany(Test::class, 'cauhoi_dethi', 'cauhoi_id', 'dethi_id');
+    }
+
     protected $table = 'cauhois';
 }
